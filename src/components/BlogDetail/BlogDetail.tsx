@@ -1,4 +1,5 @@
 import React from 'react';
+import {jsx} from "@emotion/react";
 /** @jsxRuntime classic */
 /** @jsx jsx */
 export interface BlogDetailProps {
