@@ -1,13 +1,30 @@
-import React from 'react';
+import React from "react";
+
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import {jsx, css} from '@emotion/react'
+import { jsx, css } from "@emotion/react";
+
+function style() {
+  return css`
+    background-color: #4c5a61;
+    color: white;
+    height: 50px;
+    img {
+      height: 100%;
+    }
+  `;
+}
+
 export interface HeaderProps {
+  imageUrl?: string;
 }
+
 export const Header = (props: HeaderProps) => {
-    return (
-      <div className="Header">
-        누추한 분께서 귀한 곳을 방문해 주셔서 감사합니다.
-      </div>
-    );
-}
+  return (
+    <div className="Header" css={style()}>
+      {props.imageUrl && <img src={props.imageUrl} />}
+    </div>
+  );
+};
+
+Header.defaultProps = {};

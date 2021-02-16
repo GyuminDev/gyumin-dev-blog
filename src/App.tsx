@@ -1,23 +1,40 @@
-import React from 'react';
-import './App.css';
-import {BlogDetail} from "./components/BlogDetail/BlogDetail";
-import {Header} from "./components/Header/Header";
-import {Content} from "./components/Content/Content";
-import {Footer} from "./components/Footer/Footer";
-import {css, jsx} from "@emotion/react";
+import React from "react";
+import "./App.css";
+import { BlogDetail } from "./components/BlogDetail/BlogDetail";
+import { Header } from "./components/Header/Header";
+import { Menu, SideNav } from "./components/SideNav/SideNav";
+import { List } from "./components/List/List";
+import { Write } from "./components/Write/Write";
 
-const App = () => {
-
+function App() {
+  let menus: Menu[] = [
+    {
+      path: "/post",
+      exact: true,
+      label: "게시글 리스트",
+      component: () => <List />,
+    },
+    // {
+    //   path: "/post/1",
+    //   label: "상세 페이지",
+    //   component: () => <BlogDetail />,
+    // },
+    {
+      path: "/write",
+      label: "글쓰기",
+      component: () => <Write />,
+    },
+  ];
 
   return (
-    <div className="App">
-      <Header>
-
-      </Header>
-      <Content />
-      <Footer>
-
-      </Footer>
+    <div className="App" style={{ height: "100%" }}>
+      <SideNav menus={menus}>
+        <Header
+        // imageUrl={
+        //   "https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1603852170/noticon/iwbd31aaoxcxh1ololsi.png"
+        // }
+        />
+      </SideNav>
     </div>
   );
 }
